@@ -31,7 +31,7 @@ func FindAllUser() []model.User {
 		for rows.Next(){
 			var id int
 			var username string
-			var password string
+			var password []byte
 			var vault_token string
 			err2 :=rows.Scan(&id,&username,&password,&vault_token)
 			if err2 != nil {
@@ -72,7 +72,7 @@ func FindUserByID (id int) model.User {
 		if rows.Next() {
 			var id int
 			var username string
-			var password string
+			var password []byte
 			var vault_token string
 			err2 := rows.Scan(&id, &username, &password, &vault_token)
 			if err2 != nil {

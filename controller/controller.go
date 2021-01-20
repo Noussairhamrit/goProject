@@ -9,6 +9,7 @@ import (
 	"github.com/crud_go_postgres/service"
 	"github.com/crud_go_postgres/model"
 	"strconv"
+	"golang.org/x/crypto/bcrypt"
 )
 var templates *template.Template
 
@@ -35,8 +36,13 @@ func indexPosthandler(w http.ResponseWriter ,r*http.Request){
 	id2:=int(id1)
 	username := r.PostForm.Get("username")
 	password := r.PostForm.Get("password")
+	cost := bcrypt.DefaultCost
+	hash,err := bcrypt.GenerateFromPassword([]byte(password),cost)
+	if err != nil{
+		return
+	}
 	vault_token := r.PostForm.Get("vault_token")
-	user:=model.User{id2,username,password,vault_token}
+	user:=model.User{id2,username,hash,vault_token}
 	service.CreateUser(user)
 	http.Redirect(w,r,"/",302)
 }

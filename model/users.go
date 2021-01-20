@@ -2,7 +2,7 @@ package model
 type User struct {
 	Id          int
 	Username    string
-	Password    string
+	Password    []byte
 	Vault_token string
 
 }
