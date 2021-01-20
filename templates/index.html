@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Crud user</title>
+
+</head>
+<body>
+<h1>users</h1>
+<form method="POST">
+    <input name="id" placeholder="id"></input>
+    <input name="username" placeholder="username"></input>
+    <input name="password" placeholder="password"></input>
+    <input name="vault_token" placeholder="vault_token"></input>
+    <div>
+        <button type="submit">Post Comment</button>
+    </div>
+</form>
+{{ range .}}
+<div>{{.}}</div>
+{{end}}
+</body>
+</html>

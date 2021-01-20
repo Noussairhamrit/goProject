@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/crud_go_postgres/service"
+	"github.com/crud_go_postgres/controller"
 )
 
 func main(){
@@ -17,4 +18,5 @@ func main(){
 	//service.DeleteUser(3)
 	service.EditUser(2,"nou","nou","774411")
 	service.FindAllUser()
+	controller.Global()
 }
