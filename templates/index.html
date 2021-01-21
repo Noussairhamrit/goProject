@@ -14,8 +14,28 @@
         <button type="submit">Add User</button>
     </div>
 </form>
-{{ range .}}
-<div>{{.}}</div>
-{{end}}
+<caption>list of users</caption>
+
+<table border="1">
+
+
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Vault_token</th>
+        <th>Action</th>
+    </tr>
+    {{ range .}}
+    <tr>
+        <td>{{.Id}}</td>
+        <td>{{.Username}}</td>
+        <td>{{.Vault_token}}</td>
+        <td><button>edit</button>
+            <button >delete</button></td>
+    </tr>
+    {{end}}
+</table>
+
+
 </body>
 </html>

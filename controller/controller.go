@@ -19,6 +19,7 @@ func Global()  {
 	r:=mux.NewRouter()
 	r.HandleFunc("/",indexGethandler).Methods("GET")
 	r.HandleFunc("/",indexPosthandler).Methods("POST")
+	r.HandleFunc("/",Deletehandler).Methods("DELETE")
 	////////////////////////////
 	http.Handle("/",r)
 	fmt.Println("server startting ...")
@@ -44,5 +45,9 @@ func indexPosthandler(w http.ResponseWriter ,r*http.Request){
 	vault_token := r.PostForm.Get("vault_token")
 	user:=model.User{id2,username,hash,vault_token}
 	service.CreateUser(user)
+	http.Redirect(w,r,"/",302)
+}
+func Deletehandler(w http.ResponseWriter ,r*http.Request){
+	//service.DeleteUser()
 	http.Redirect(w,r,"/",302)
 }

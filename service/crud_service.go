@@ -40,7 +40,7 @@ func FindAllUser() []model.User {
 				user:=model.User{
 					Id:          id,
 					Username:    username,
-					Password:    password,
+					//Password:    password,
 					Vault_token: vault_token,
 				}
 				users=append(users ,user)
@@ -81,7 +81,7 @@ func FindUserByID (id int) model.User {
 				user = model.User{
 					Id:          id,
 					Username:    username,
-					Password:    password,
+					//Password:    password,
 					Vault_token: vault_token,
 				}
 
